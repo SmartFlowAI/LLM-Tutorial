@@ -171,7 +171,7 @@ def on_btn_click():
 def load_model(arg1):
     # model = AutoModelForCausalLM.from_pretrained(args.m).cuda()
     # tokenizer = AutoTokenizer.from_pretrained(args.m, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(arg1, torch_dtype=torch.float16).cuda()
+    model = AutoModelForCausalLM.from_pretrained(arg1, torch_dtype=torch.float16, trust_remote_code=True).cuda()
     tokenizer = AutoTokenizer.from_pretrained(arg1, trust_remote_code=True)
 
   
@@ -182,7 +182,7 @@ def prepare_generation_config():
     with st.sidebar:
         max_length = st.slider('Max Length',
                                min_value=8,
-                               max_value=8192,
+                               max_value=128 * 1024,
                                value=8192)
         top_p = st.slider('Top P', 0.0, 1.0, 0.8, step=0.01)
         temperature = st.slider('Temperature', 0.0, 1.0, 0.7, step=0.01)
@@ -195,9 +195,9 @@ def prepare_generation_config():
     return generation_config
 
 
-user_prompt = '<|start_header_id|>user<|end_header_id|>\n\n{user}<|eot_id|>'
-robot_prompt = '<|start_header_id|>assistant<|end_header_id|>\n\n{robot}<|eot_id|>'
-cur_query_prompt = '<|start_header_id|>user<|end_header_id|>\n\n{user}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n'
+user_prompt = '<|user|>\n{user}<|end|>'
+robot_prompt = '<|assistant|>\n{robot}<|end|>'
+cur_query_prompt = '<|user|>\n{user}<|end|><|assistant|>\n'
 
 
 def combine_history(prompt):
@@ -222,7 +222,7 @@ def main(arg1):
     model, tokenizer = load_model(arg1)
     print('load model end.')
 
-    st.title('Llama3-Instruct')
+    st.title('Phi-3-mini-128k-instruct')
 
     generation_config = prepare_generation_config()
 
@@ -253,7 +253,7 @@ def main(arg1):
                     model=model,
                     tokenizer=tokenizer,
                     prompt=real_prompt,
-                    additional_eos_token_id=128009,  # <|eot_id|>
+                    additional_eos_token_id=32007,  # <|end|>
                     **asdict(generation_config),
             ):
                 # Display robot response in chat message container
