@@ -18,9 +18,8 @@
 
 </div>
 
-
 <div align="center">
-  <img src="https://github.com/SmartFlowAI/X-Llama3/assets/25839884/b2a9d3f1-3463-44aa-af77-7e1caa541aed" alt="image" width="200" height="200">
+  <img src="https://github.com/SmartFlowAI/Phi-Tutorial/assets/25839884/ff4eb45e-f521-40a2-8501-cb179c5c8d52" alt="image" width="200" height="200">
 </div>
 
 <div align="center">
