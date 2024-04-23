@@ -1,4 +1,4 @@
-# XTuner 微调 Llama3 个人小助手认知
+# XTuner 微调 Phi-3 个人小助手认知
 
 
 ## 环境配置
