@@ -1,4 +1,3 @@
-
 # Copyright (c) OpenMMLab. All rights reserved.
 import torch
 from datasets import load_dataset
@@ -25,12 +24,12 @@ from xtuner.utils import PROMPT_TEMPLATE, SYSTEM_TEMPLATE
 #                          PART 1  Settings                           #
 #######################################################################
 # Model
-pretrained_model_name_or_path = '/root/model/Meta-Llama-3-8B-Instruct'
+pretrained_model_name_or_path = '/root/share/new_models/microsoft/Phi-3-mini-128k-instruct'
 use_varlen_attn = False
 
 # Data
-data_files = ['/root/Llama3-XTuner-CN/data/personal_assistant.json']
-prompt_template = PROMPT_TEMPLATE.llama3_chat
+data_files = ['/root/Phi-Tutorial/data/personal_assistant.json']
+prompt_template = PROMPT_TEMPLATE.phi3_chat
 max_length = 512
 pack_to_max_length = True
 
