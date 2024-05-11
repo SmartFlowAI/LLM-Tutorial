@@ -1,6 +1,6 @@
 # LMDeploy 部署 InternVL1.5
 
-InternVL1.5 是 OpenGVLab 最新开源的视觉多模态大模型，从评测角度看，InternVL1.5 是目前最好的开源视觉多模态大模型。
+InternVL1.5 是 OpenGVLab 最新开源的视觉多模态大模型，从评测角度看，InternVL1.5 是目前最好的开源视觉多模态大模型。InternVL 包括一个 6B 大的视觉模型 InternViT 和一个 20B 大的语言模型 InternLM2-Chat-20B。
 
 LMDeploy 团队也已经支持了 InternVL1.5 的部署，下面是部署的详细步骤。
 
@@ -40,7 +40,7 @@ ln -s /root/share/new_models/OpenGVLab/InternVL-Chat-V1-5 .
 
 - 非 InternStudio
 
-在非 InternStudio，我们可以从 OpenGVLab 上下载 InternVL1.5 的权重。
+在非 InternStudio，我们可以从 HuggingFace 上下载 InternVL1.5 的权重。
 
 ```bash
 mkdir -p /root/model
