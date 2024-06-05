@@ -23,6 +23,6 @@
 </div>
 
 <div align="center">
-欢迎加入 Phi-3 大讨论交流群～
+欢迎加入 LLM 大讨论交流群～
 </div>
 
